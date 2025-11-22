@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Students • MCA 2025 Portfolio Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <span class="logo-text">MCA 2025 Hub</span>
+      </div>
+      <nav class="navbar">
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="students.html" class="active">Students</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Students & Portfolios</h1>
+      <p class="lead">
+        Browse MCA 2025 students, their domains, GitHub profiles, and portfolio links.
+      </p>
+
+      <!-- Simple search box (front-end only, JS in main.js) -->
+      <div class="search-box">
+        <input
+          type="text"
+          id="studentSearch"
+          placeholder="Search by name, domain, or tech..."
+        />
+      </div>
+
+      <div class="table-wrapper">
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Domain / Interest</th>
+              <th>Tech Stack</th>
+              <th>Portfolio</th>
+              <th>GitHub</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- SAMPLE ROWS: copy-paste and edit for each student -->
+            <tr>
+              <td>Sample Student</td>
+              <td>Web Development</td>
+              <td>HTML, CSS, JavaScript</td>
+              <td><a href="https://example.com" target="_blank">View</a></td>
+              <td><a href="https://github.com/example" target="_blank">GitHub</a></td>
+            </tr>
+            <!--
+            <tr>
+              <td>Second Student</td>
+              <td>Cybersecurity</td>
+              <td>Linux, Python, SOC</td>
+              <td><a href="https://example2.com" target="_blank">View</a></td>
+              <td><a href="https://github.com/example2" target="_blank">GitHub</a></td>
+            </tr>
+            -->
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note">
+        Note: Only students who have given consent through the official form are listed here.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© MCA 2025 Portfolio Hub</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
