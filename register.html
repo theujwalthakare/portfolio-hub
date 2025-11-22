@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Register • MCA 2025 Portfolio Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <span class="logo-text">MCA 2025 Hub</span>
+      </div>
+      <nav class="navbar">
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="students.html">Students</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="register.html" class="active">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Register Your Portfolio</h1>
+      <p class="lead">Fill the form below to add your profile to the MCA 2025 Hub. Your resume link should point to a public PDF (Google Drive, Dropbox, etc.).</p>
+
+      <form id="registerForm" class="card" style="max-width:760px; margin-top:1rem;">
+        <label>Full name<br /><input type="text" id="fullName" required placeholder="Your full name" /></label>
+        <div style="height:0.5rem"></div>
+        <label>Domain / Interest<br /><input type="text" id="domain" required placeholder="e.g., Web Development, Data Science" /></label>
+        <div style="height:0.5rem"></div>
+        <label>Tech stack (comma separated)<br /><input type="text" id="techStack" required placeholder="e.g., React, Node.js, Python" /></label>
+        <div style="height:0.5rem"></div>
+        <label>Portfolio URL<br /><input type="url" id="portfolioUrl" placeholder="https://yourportfolio.example" /></label>
+        <div style="height:0.5rem"></div>
+        <label>GitHub profile URL<br /><input type="url" id="githubUrl" placeholder="https://github.com/yourname" /></label>
+        <div style="height:0.5rem"></div>
+        <label>Resume PDF URL<br /><input type="url" id="resumeUrl" placeholder="https://drive.google.com/...." /></label>
+
+        <div style="height:0.75rem"></div>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <button type="submit" class="btn primary">Submit</button>
+          <button type="button" id="previewBtn" class="btn secondary">Preview Row</button>
+          <div id="formMessage" style="margin-left:1rem;color:green"></div>
+        </div>
+      </form>
+
+      <section style="margin-top:1.25rem;">
+        <h2>Row preview (HTML)</h2>
+        <p class="note">This is a preview of the table row that will be generated. You can copy it as a backup.</p>
+        <pre id="rowPreview" style="background:#fff;padding:1rem;border-radius:8px;overflow:auto;">&lt;tr&gt;...row preview will appear here...&lt;/tr&gt;</pre>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© MCA 2025 Portfolio Hub</p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
