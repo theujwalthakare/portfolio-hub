@@ -3,8 +3,22 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+// Types for Student and Portfolio
+type Portfolio = {
+  domain?: string;
+  url?: string;
+  lastStatus?: number;
+};
+
+type Student = {
+  id: string | number;
+  name?: string;
+  email?: string;
+  portfolio?: Portfolio;
+};
+
 // Batch Roster Table Component with real database data
-const BatchRosterTable = ({ students }: { students: any[] }) => {
+const BatchRosterTable = ({ students }: { students: Student[] }) => {
   const [filter, setFilter] = useState('All Domains');
   
   const filteredData = filter === 'All Domains' 
@@ -13,9 +27,9 @@ const BatchRosterTable = ({ students }: { students: any[] }) => {
     
   const stats = {
     total: students.length,
-    live: students.filter((s: any) => s.portfolio?.lastStatus === 200).length,
-    pending: students.filter((s: any) => !s.portfolio).length,
-    broken: students.filter((s: any) => s.portfolio?.lastStatus === 404).length
+    live: students.filter((s: Student) => s.portfolio?.lastStatus === 200).length,
+    pending: students.filter((s: Student) => !s.portfolio).length,
+    broken: students.filter((s: Student) => s.portfolio?.lastStatus === 404).length
   };
   
   return (
@@ -53,13 +67,12 @@ const BatchRosterTable = ({ students }: { students: any[] }) => {
             <option>Cloud/DevOps</option>
             <option>Data Science</option>
             <option>Full Stack</option>
-            <option>AI/ML</option>
           </select>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-800">
-              <tr className="text-left">
+          <table className="min-w-full">
+            <thead>
+              <tr className="border-t border-gray-700 hover:bg-gray-800/50">
                 <th className="p-3 text-gray-400 font-mono">STUDENT</th>
                 <th className="p-3 text-gray-400 font-mono hidden md:table-cell">DOMAIN</th>
                 <th className="p-3 text-gray-400 font-mono hidden lg:table-cell">PORTFOLIO</th>
@@ -67,11 +80,9 @@ const BatchRosterTable = ({ students }: { students: any[] }) => {
               </tr>
             </thead>
             <tbody>
-              {filteredData.slice(0, 6).map((student: any) => {
+              {filteredData.slice(0, 6).map((student: Student) => {
                 const isHealthy = student.portfolio?.lastStatus === 200;
-                const hasIssues = student.portfolio?.lastStatus === 404;
                 const isPending = !student.portfolio;
-                
                 return (
                   <tr key={student.id} className="border-t border-gray-700 hover:bg-gray-800/50">
                     <td className="p-3">

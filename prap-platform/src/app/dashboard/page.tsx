@@ -32,12 +32,12 @@ export default async function DashboardPage() {
   // Server-side fetches: user profile + portfolio + basic analytics
   const portfolio = await prisma.portfolio.findUnique({ where: { userId: session.user.id } });
   // No activity model in schema; use empty array as placeholder
-  const recentActivity: any[] = [];
+  const recentActivity: object[] = [];
 
   // Build checklist from portfolio shape (simple example)
   const checklist = [
-    { label: "Scaffolded portfolio (template)", status: !!portfolio?.scaffolded },
-    { label: "GitHub connected", status: !!portfolio?.github },
+    { label: "Portfolio URL configured", status: !!portfolio?.url },
+    { label: "Domain specialization set", status: !!portfolio?.domain },
     { label: "Resume uploaded", status: !!portfolio?.resumeUrl },
     { label: "Portfolio health is OK", status: portfolio?.lastStatus === 200 },
   ];

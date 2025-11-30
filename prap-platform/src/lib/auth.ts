@@ -15,6 +15,8 @@ export async function requireAdmin() {
   return session;
 }
 
-export function isAdmin(session: any) {
+import { Session } from "next-auth";
+
+export function isAdmin(session: Session | null | undefined) {
   return session?.user?.role === "ADMIN";
 }
